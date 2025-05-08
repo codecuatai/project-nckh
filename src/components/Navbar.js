@@ -9,32 +9,46 @@ import {
 
 const Navbar = () => {
   return (
-    <BootstrapNavbar expand="lg" className="navbar">
-      <Container fluid>
-        <BootstrapNavbar.Brand as={Link} to="/">
-          JobViet
+    <BootstrapNavbar expand="lg" className="navbar py-2 shadow-sm">
+      <Container>
+        {/* Logo */}
+        <BootstrapNavbar.Brand as={Link} to="/" className="navbar-brand">
+          <span className="brand-text">JobViet</span>
         </BootstrapNavbar.Brand>
+
         <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
+
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
+          {/* Navigation Links */}
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">
+            <Nav.Link as={Link} to="/" className="nav-link-custom mx-1">
               Việc làm
             </Nav.Link>
-            <Nav.Link as={Link} to="/create-cv">
+            <Nav.Link
+              as={Link}
+              to="/create-cv"
+              className="nav-link-custom mx-1"
+            >
               Tạo CV
             </Nav.Link>
           </Nav>
-          <div className="d-flex">
-            <Button as={Link} to="/login" className="btn-login me-2">
+
+          {/* Authentication Buttons */}
+          <Nav className="ms-auto d-flex align-items-center">
+            <Button as={Link} to="/login" className="btn-login nav-button me-2">
               Đăng nhập
             </Button>
-            <Button as={Link} to="/signup" className="btn-register me-2">
+            <Button
+              as={Link}
+              to="/signup"
+              className="btn-register nav-button me-2"
+            >
               Đăng ký
             </Button>
-            <Button as={Link} to="/login" className="btn-post">
+            <Button as={Link} to="/login" className="btn-post nav-button">
               Đăng tin
             </Button>
-          </div>
+          </Nav>
         </BootstrapNavbar.Collapse>
       </Container>
     </BootstrapNavbar>

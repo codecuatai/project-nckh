@@ -79,7 +79,7 @@ const SignupPage = () => {
             required
             className="mb-4"
           />
-
+          <br />
           <Button
             type="submit"
             className="w-100"

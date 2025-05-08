@@ -2,7 +2,7 @@ const jobs = Array.from({ length: 30 }, (_, i) => ({
   id: i + 1,
   title: `Công việc ${i + 1}`,
   salary: `${10 + i} - ${20 + i} triệu`,
-  location: i % 2 === 0 ? "Hà Nội" : "TP.HCM",
+  location: i % 2 === 0 ? "Hà Nội" : "Thành phố Hồ Chí Minh",
   logo: "https://via.placeholder.com/50",
   companyName: `Công ty ${i + 1}`,
   postDate: "01/05/2025",
@@ -45,8 +45,6 @@ export const locationFilters = [
   "Ngẫu Nhiên",
   "Hà Nội",
   "Thành phố Hồ Chí Minh",
-  "Miền Bắc",
-  "Miền Nam",
 ];
 
 export default jobs;

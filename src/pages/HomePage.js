@@ -18,7 +18,7 @@ const HomePage = () => {
   const [activeTag, setActiveTag] = useState(locationFilters[0]);
   const jobsPerPage = 12;
 
-  // Lọc công việc theo location nếu cần
+  // Lọc công việc theo location
   const filteredJobs =
     activeTag === "Ngẫu Nhiên"
       ? jobs
@@ -36,36 +36,35 @@ const HomePage = () => {
   return (
     <>
       {/* Search Section */}
-      <div className="search-section text-center">
+      <div className="search-section">
         <Container>
-          <h4 className="mb-4">
-            Tìm kiếm việc làm mới nhất nhanh chóng và tiện lợi
-          </h4>
+          <h4>Tìm kiếm việc làm mới nhất nhanh chóng và tiện lợi</h4>
           <div className="d-flex justify-content-center mb-3 flex-wrap gap-2">
             <Form.Control
+              className="search"
               type="text"
               style={{ maxWidth: "300px" }}
               placeholder="Vị trí việc làm, tuyển dụng"
             />
-            <Form.Select style={{ maxWidth: "200px" }}>
+            <Form.Select className="search" style={{ maxWidth: "200px" }}>
               <option>Địa điểm</option>
               <option>Hà Nội</option>
               <option>TP.HCM</option>
               <option>Đà Nẵng</option>
             </Form.Select>
-            <Button variant="success" className="rounded-pill">
+            <Button variant="success" className="rounded-pill px-4 search">
               Tìm kiếm
             </Button>
           </div>
-          <div className="mb-3 fw-bold">hoặc</div>
-          <Button className="cv-search-btn rounded-pill">
-            Tìm kiếm dựa trên CV của bạn (thông minh)
+          <div className="mb-2 fw-bold">hoặc</div>
+          <Button className="cv-search-btn">
+            Tìm kiếm dựa trên CV của bạn
           </Button>
         </Container>
       </div>
 
       {/* Carousel */}
-      <div className="carousel-container text-center">
+      <div className="carousel-container">
         <Container>
           <Carousel id="jobCarousel">
             <Carousel.Item>
@@ -76,24 +75,13 @@ const HomePage = () => {
                 />
               </div>
             </Carousel.Item>
-            <Carousel.Item>
-              <div className="carousel-item">
-                <img
-                  src="/assets/qauntrikinhdoanh.jpg"
-                  alt="Quản trị kinh doanh"
-                />
-              </div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <div className="carousel-item">Công việc 3: Kế toán tổng hợp</div>
-            </Carousel.Item>
           </Carousel>
         </Container>
       </div>
 
       {/* Job List Section */}
-      <Container className="py-4">
-        <h4 className="fw-bold text-success">Việc làm tốt nhất</h4>
+      <Container className="py-3">
+        <h4 className="fw-bold text-success mb-3">Việc làm tốt nhất</h4>
 
         {/* Filter tags */}
         <TagFilter
@@ -103,14 +91,14 @@ const HomePage = () => {
         />
 
         {/* Alert */}
-        <Alert variant="info" className="py-2">
+        <Alert variant="info">
           Gợi ý: Di chuột vào tiêu đề để xem thêm thông tin chi tiết
         </Alert>
 
         {/* Job list */}
         <Row className="g-3">
           {currentJobs.map((job) => (
-            <Col md={4} key={job.id}>
+            <Col lg={4} md={6} key={job.id}>
               <JobCard job={job} />
             </Col>
           ))}
